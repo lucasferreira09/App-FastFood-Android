@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="styleAdd">
+        <item name="android:background">@drawable/adiciona_view</item>
+
+    </style>
+</resources>

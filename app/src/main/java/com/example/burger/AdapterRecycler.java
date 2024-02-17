@@ -7,18 +7,26 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterRecycler extends RecyclerView.Adapter<Holder> {
 
-    Context context;
+    
+    private Context context;
     private List<Burgueria> burgueriaList;
 
-    public AdapterRecycler(List<Burgueria> burgueriaList) {
+    SelectListener listener;
+
+    public AdapterRecycler(List<Burgueria> burgueriaList, Context context, SelectListener listener) {
         this.burgueriaList = burgueriaList;
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -30,6 +38,15 @@ public class AdapterRecycler extends RecyclerView.Adapter<Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.nameLanche.setText(burgueriaList.get(position).getNameLanche());
         holder.imageLanche.setImageResource(burgueriaList.get(position).getImageLanche());
+
+        holder.imageLanche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClicked(burgueriaList.get(position));
+
+            }
+        });
+
     }
 
     @Override

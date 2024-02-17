@@ -8,7 +8,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterLancheFragment extends FragmentStateAdapter {
+public class AdapterLancheFragment extends FragmentStateAdapter{
 
     List<Fragment> fragmentsList = new ArrayList<>();
     List<String> titleFragmentList = new ArrayList<>();

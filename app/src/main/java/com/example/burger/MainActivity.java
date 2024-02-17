@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btnPedir;
     ImageView fome;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ac);
             }
         });
-        /*
-        btnPedir = findViewById(R.id.btnPedir);
 
-        btnPedir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ActivityHost.class));
-            }
-        });
-
-         */
 
     }
 }
