@@ -84,7 +84,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewFinalizaPedido"/>
 
     <TextView
-        android:id="@+id/valorPedido"
+        android:id="@+id/valorPedidoTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/freckle_face"

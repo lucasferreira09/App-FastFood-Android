@@ -34,6 +34,7 @@ public class ActivityHost extends AppCompatActivity{
     ConstraintLayout containerVi;
     private ImageView cart;
     private List<Burgueria> bbb = new ArrayList<>();
+    private ViewPager2 pager2;
 
 
     @Override
@@ -42,7 +43,7 @@ public class ActivityHost extends AppCompatActivity{
         setContentView(R.layout.activity_host);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
-        ViewPager2 pager2 = findViewById(R.id.pager2);
+        pager2 = findViewById(R.id.pager2);
 
         cart = findViewById(R.id.cart);
         containerVi = findViewById(R.id.containerVi);
@@ -58,7 +59,7 @@ public class ActivityHost extends AppCompatActivity{
 
         adapterLancheFragment.addFragment(hotDogFragment, "Hot Dog");
 
-        adapterLancheFragment.addFragment(coxinha, "Fritos");
+        adapterLancheFragment.addFragment(coxinha, "Combos");
 
         pager2.setAdapter(adapterLancheFragment);
 

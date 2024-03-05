@@ -2,4 +2,9 @@
     <string name="app_name">Burger</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="descricaoBigMac">Dois hambúrgueres, Alface Americana, Queijo Cheddar, Molho especial, Cebola, Picles e pão com Gergelim.</string>
+    <string name="descricaoFaminto">Três hambúrgueres (bovino), Queijo cheddar, Cebola, Picles, Ketchup, Mostarda e pão com Grgelim.</string>
+    <string name="descricaoMiniBurger">Carne, Cheddar derretido, Alface, Tomate maduro, Cebola roxa, Picles e maionese especial.</string>
+
 </resources>

@@ -27,6 +27,5 @@ public class HolderCarrinho extends RecyclerView.ViewHolder {
         quantidLanche = itemView.findViewById(R.id.quantidLanche);
 
 
-
     }
 }

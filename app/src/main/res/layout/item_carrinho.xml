@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/vvv">
+
+
+    <ImageView
+        android:id="@+id/imageLanche"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/nameLanche"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Burguer"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/freckle_face"
+        app:layout_constraintStart_toEndOf="@+id/imageLanche"
+        app:layout_constraintTop_toTopOf="@+id/imageLanche" />
+
+    <TextView
+        android:id="@+id/priceLanche"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="$ 00,00"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/chango"
+        app:layout_constraintStart_toStartOf="@+id/nameLanche"
+        app:layout_constraintTop_toBottomOf="@+id/nameLanche" />
+
+
+    <View
+        android:id="@+id/viewAddCarrinho"
+        style="@style/gradientCarrinho2"
+        android:layout_width="40dp"
+        android:layout_height="95dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageLanche"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageLanche" />
+
+    <ImageView
+        android:id="@+id/btnAddLanche"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/mais"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewAddCarrinho"
+        app:layout_constraintStart_toStartOf="@+id/viewAddCarrinho"
+        app:layout_constraintTop_toTopOf="@+id/viewAddCarrinho" />
+
+    <TextView
+        android:id="@+id/quantidLanche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/boulderregular"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnRemoveLanche"
+        app:layout_constraintEnd_toEndOf="@+id/viewAddCarrinho"
+        app:layout_constraintStart_toStartOf="@+id/viewAddCarrinho"
+        app:layout_constraintTop_toTopOf="@id/btnAddLanche"></TextView>
+
+    <ImageView
+        android:id="@+id/btnRemoveLanche"
+        android:layout_width="20dp"
+        android:scaleType="fitCenter"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/menos"
+        app:layout_constraintBottom_toBottomOf="@id/viewAddCarrinho"
+        app:layout_constraintEnd_toEndOf="@+id/viewAddCarrinho"
+        app:layout_constraintStart_toStartOf="@+id/viewAddCarrinho"
+        app:layout_constraintTop_toBottomOf="@id/quantidLanche"></ImageView>
+
+
+
+    <View
+        android:id="@+id/viewFinal"
+        style="@style/gradientCarrinho"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageLanche" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/viewFinal"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

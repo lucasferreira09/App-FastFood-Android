@@ -33,7 +33,6 @@ public class BurgerFragment extends Fragment implements SelectListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_burger, container, false);
 
-        CarrinhoFragment carrinhoFragment = new CarrinhoFragment();
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 
         constraintLayout = view.findViewById(R.id.constraintLayout);
@@ -41,21 +40,22 @@ public class BurgerFragment extends Fragment implements SelectListener {
         List<Burgueria> burgueriaList = new ArrayList<>();
 
         Context context = getActivity();
+
         AdapterRecycler adapter = new AdapterRecycler(burgueriaList, context, this);
+
         recyclerView.setAdapter(adapter);
 
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        burgueriaList.add(new Burgueria("X Bacon", R.drawable.burguera, 9));
-        burgueriaList.add(new Burgueria("X Salada", R.drawable.burguerb, 7));
-        burgueriaList.add(new Burgueria("Big Mac", R.drawable.burguerd, 15));
+        burgueriaList.add(new Burgueria("X Bacon", R.drawable.burguera));
+        burgueriaList.add(new Burgueria("X Salada", R.drawable.burguerb));
+        burgueriaList.add(new Burgueria("Big Mac", R.drawable.burguerd, 15, "fjfkej"));
         burgueriaList.add(new Burgueria("EXTRA", R.drawable.burguerc));
-        burgueriaList.add(new Burgueria("Inglês", R.drawable.burguerb));
-        burgueriaList.add(new Burgueria("Top Top", R.drawable.burguerc));
-        burgueriaList.add(new Burgueria("Combo", R.drawable.burguera));
-        burgueriaList.add(new Burgueria("Americano", R.drawable.burguera));
+        burgueriaList.add(new Burgueria("Faminto", R.drawable.faminto, 14, "jfkjfk"));
+        burgueriaList.add(new Burgueria("Mini Burger", R.drawable.mini, 6, "dejkejfe"));
+
 
         return view;
     }
@@ -65,6 +65,8 @@ public class BurgerFragment extends Fragment implements SelectListener {
         Bundle bundle = new Bundle();
         bundle.putString("nameLanche", burgueria.getNameLanche());
         bundle.putInt("idImage", burgueria.getImageLanche());
+        bundle.putInt("priceLanche", burgueria.getPriceLanche());
+        bundle.putString("descricaoLanche", burgueria.getDescricaoLanche());
 
         FragmentManager fm = getParentFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

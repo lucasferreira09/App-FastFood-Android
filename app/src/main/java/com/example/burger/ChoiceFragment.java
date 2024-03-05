@@ -30,26 +30,33 @@ public class ChoiceFragment extends Fragment implements AdicionaCarrinho{
         CardView cardAdd = view.findViewById(R.id.carAdd);
         TextView choiceLanche = view.findViewById(R.id.choiceLanche);
         LinearLayout linear = view.findViewById(R.id.linear);
+        TextView descricaoLanche = view.findViewById(R.id.descricaoLanche);
+        TextView priceLanche = view.findViewById(R.id.priceLanche);
 
         Bundle bundle = getArguments();
 
         String nameLanche = bundle.getString("nameLanche");
         int idImage = bundle.getInt("idImage");
+        int price = bundle.getInt("priceLanche");
+        String descricao = bundle.getString("descricaoLanche");
+
+        descricaoLanche.setText(descricao);
+        priceLanche.setText("$ " + String.valueOf(price));
 
         choiceLanche.setText(nameLanche);
+
 
 
         //VIEW QUE VOLTA PARA A TELA INICIAL
         linear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
 
 
-        Burgueria burgueria = new Burgueria(nameLanche, idImage);
+        Burgueria burgueria = new Burgueria(nameLanche, idImage, price, descricao);
 
         cardAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +84,6 @@ public class ChoiceFragment extends Fragment implements AdicionaCarrinho{
         });
 
         return view;
-    }
-    public TextView get(){
-        return getView().findViewById(R.id.choiceLanche);
     }
 
     @Override
