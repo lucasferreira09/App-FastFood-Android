@@ -11,18 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.burger.adapters.AdapterLanchesCarrinho;
+import com.example.burger.interfaces.ListenerTextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CarrinhoFragment extends Fragment implements ListenerTextView{
+public class CarrinhoFragment extends Fragment implements ListenerTextView {
 
-    private AdapterRecyclerCarrinho adapterRecyclerCarrinho;
     private TextView valorPedidoTotal;
 
     @Override
@@ -40,29 +38,27 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView{
         valorPedidoTotal = view.findViewById(R.id.valorPedidoTotal);
         ImageButton btnPedir = view.findViewById(R.id.btnPedir);
 
-        Context context = getActivity();
 
-        //VAI RETORNAR A LISTA GERAL DO CARRINHO
-        Burgueria bug = new Burgueria();
+        //Será usada para pegar toda a lista de Lanches adicionados
+        Burgueria burgueria = new Burgueria();
 
-
-        String pedidoTotal = calculaPedidoTotal(bug.getListaGeral());
+        String pedidoTotal = calculaPedidoTotal(burgueria.getListaGeral());
         valorPedidoTotal.setText(pedidoTotal);
 
-        AdapterRecyclerCarrinho adapterRecyclerCarrinho = new AdapterRecyclerCarrinho(bug.getListaGeral(), context, this);
-
+        //Prepara a lista que terá todos os pedidos adicionados
+        Context context = getActivity();
+        AdapterLanchesCarrinho adapterLanchesCarrinho = new AdapterLanchesCarrinho(burgueria.getListaGeral(), context, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-
-        recyclerCarrinho.setAdapter(adapterRecyclerCarrinho);
+        recyclerCarrinho.setAdapter(adapterLanchesCarrinho);
         recyclerCarrinho.setLayoutManager(layoutManager);
 
-        /*
+
         btnPedir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent enviarPedido = new Intent();
                 enviarPedido.setAction(Intent.ACTION_SEND);
-                enviarPedido.putExtra(Intent.EXTRA_TEXT, descricaoPedidoTotal(bug.getListaGeral()));
+                enviarPedido.putExtra(Intent.EXTRA_TEXT, descricaoPedidoTotal(burgueria.getListaGeral()));
                 enviarPedido.setType("text/plain");
 
                 Intent shareIntent = Intent.createChooser(enviarPedido, null);
@@ -70,16 +66,18 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView{
             }
         });
 
-         */
 
         return view;
     }
 
+    //Listener para mudar o $ Valor total do pedido
     @Override
     public void clickTextView(List<Burgueria> listaBurgueria) {
         String pedidoTotal = calculaPedidoTotal(listaBurgueria);
         valorPedidoTotal.setText("$ " + pedidoTotal);
     }
+
+    //Calcula o $ Valor total do pedido
     public String calculaPedidoTotal(List<Burgueria> lista){
         int novoValorTotal = 0;
 
@@ -90,6 +88,8 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView{
         return String.valueOf(novoValorTotal);
     }
 
+
+    //Faz uma descrição do pedido para poder enviar por WhatsApp
     public String descricaoPedidoTotal(List<Burgueria> lista){
         StringBuilder descricaoPedido = new StringBuilder();
         descricaoPedido.append("Oii, tudo bem?\n\uD83D\uDE0BVou querer:\n");

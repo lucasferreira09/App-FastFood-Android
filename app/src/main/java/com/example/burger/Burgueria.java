@@ -13,7 +13,6 @@ public class Burgueria {
     private int totalLanche;
     private static int valorPedidoTotal;
 
-
     private static List<Burgueria> listaGeral = new ArrayList<>();
 
 
@@ -24,7 +23,6 @@ public class Burgueria {
         this.nameLanche = nameLanche;
         this.imageLanche = imageLanche;
     }
-
     public Burgueria(String nameLanche, int imageLanche, int priceLanche, String descricaoLanche) {
         this.nameLanche = nameLanche;
         this.imageLanche = imageLanche;
@@ -32,29 +30,36 @@ public class Burgueria {
         this.descricaoLanche = descricaoLanche;
     }
 
+    //Métodos SET
     public String getNameLanche(){
         return nameLanche;
     }
+    public void setTotalLanche() {
+        totalLanche = quantidLanche * priceLanche;
+    }
+
+
+    //Métodos GET
     public int getImageLanche(){
         return imageLanche;
-    }
-    public void setPriceLanche(int priceLanche){
-        this.priceLanche = priceLanche;
     }
     public int getPriceLanche(){
         return priceLanche;
     }
-
-    public void setDescricaoLanche(String descricaoLanche){
-        this.descricaoLanche = descricaoLanche;
-    }
     public String getDescricaoLanche(){
         return descricaoLanche;
     }
-
-    public void setQuantidLanche(int quantidLanche){
-        this.quantidLanche = quantidLanche;
+    public int getTotalLanche() {
+        return totalLanche;
     }
+    public int getQuantidLanche(){return quantidLanche;}
+
+    public List<Burgueria> getListaGeral(){
+        return listaGeral;
+    }
+
+
+    //Métodos de Atualização
     public void addQuantidLanche(){
         quantidLanche++;
         if (totalLanche == 0){
@@ -69,39 +74,10 @@ public class Burgueria {
     public void removeQuantidLanche(){
         if (quantidLanche > 0){
             quantidLanche--;
-
         }
-
     }
-    public int getQuantidLanche(){return quantidLanche;}
-
     public void updateListaGeral(Burgueria burg){
         listaGeral.add(burg);
-    }
-    public List<Burgueria> getListaGeral(){
-        return listaGeral;
-    }
-
-
-    public void setTotalLanche() {
-        totalLanche = quantidLanche * priceLanche;
-    }
-
-    public int getTotalLanche() {
-        return totalLanche;
-    }
-
-    public String getValorPedidoTotal() {
-        return String.valueOf(valorPedidoTotal);
-    }
-    public void setValorPedidoTotal(int valorPedidoTotal) {
-        int total = 0;
-        for (Burgueria b : listaGeral){
-            int lanche1 = b.getQuantidLanche() * b.getPriceLanche();
-            total += lanche1;
-        }
-        valorPedidoTotal = total;
-
     }
 
 };

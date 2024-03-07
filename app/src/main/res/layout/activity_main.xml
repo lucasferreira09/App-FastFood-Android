@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/top1"
+    android:background="@drawable/telainicial"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/fome"
+        android:id="@+id/pedeAq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"

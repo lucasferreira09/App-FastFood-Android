@@ -11,16 +11,17 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView fome;
+    private ImageView pedeAq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fome = findViewById(R.id.fome);
+        pedeAq = findViewById(R.id.pedeAq);
 
-        fome.setOnClickListener(new View.OnClickListener() {
+        //Apenas um botão que inicia o Menu com os Lanches
+        pedeAq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent ac = new Intent(MainActivity.this, ActivityHost.class);
