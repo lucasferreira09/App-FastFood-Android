@@ -37,6 +37,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
 
         valorPedidoTotal = view.findViewById(R.id.valorPedidoTotal);
         ImageButton btnPedir = view.findViewById(R.id.btnPedir);
+        ImageButton btnVoltar = view.findViewById(R.id.btnVoltar);
 
 
         //Será usada para pegar toda a lista de Lanches adicionados
@@ -66,6 +67,12 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
             }
         });
 
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
         return view;
     }
@@ -105,7 +112,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
 
         descricaoPedido.append("\n");
         descricaoPedido.append("Endereço:\n");
-        descricaoPedido.append("Rua Cel. Luiz de Melo N°119");
+        descricaoPedido.append("Rua xxxxxx  N° x");
         descricaoPedido.append("\n");
         descricaoPedido.append("\uD83D\uDE4FObrigado!");
 

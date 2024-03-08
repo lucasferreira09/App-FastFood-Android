@@ -54,9 +54,10 @@ public class HotDogFragment extends Fragment implements SelectListener {
 
         //Menu Cardápio
         burgueriaListHotDog.add(new Burgueria("Dogzilla", R.drawable.dogzilla, 9, getString(R.string.descricaoDogzilla)));
+        burgueriaListHotDog.add(new Burgueria("Hot Mix", R.drawable.hotmix, 12, getString(R.string.descricaoHotmix)));
+        burgueriaListHotDog.add(new Burgueria("Dog Especial", R.drawable.dogespecial, 10, getString(R.string.descricaoDogEspecial)));
         burgueriaListHotDog.add(new Burgueria("Tradicional", R.drawable.tradicional, 11, getString(R.string.descricaoTradicional)));
         burgueriaListHotDog.add(new Burgueria("Dog Clássico", R.drawable.dogclassico, 9, getString(R.string.descricaoDogClassico)));
-        burgueriaListHotDog.add(new Burgueria("Hot Mix", R.drawable.hotmix, 12, getString(R.string.descricaoHotmix)));
 
 
         return view;

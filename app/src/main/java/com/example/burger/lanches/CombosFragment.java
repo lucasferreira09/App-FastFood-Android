@@ -54,6 +54,7 @@ public class CombosFragment extends Fragment implements SelectListener {
         burgueriaList.add(new Burgueria("Combo Duplo", R.drawable.comboduplo, 14, getString(R.string.descricaoComboDuplo)));
         burgueriaList.add(new Burgueria("Combo Jr.", R.drawable.combojr, 17, getString(R.string.descricaoComboJr)));
         burgueriaList.add(new Burgueria("Big Tasty", R.drawable.bigtasty, 23, getString(R.string.descricaoBigTasty)));
+        burgueriaList.add(new Burgueria("Combo", R.drawable.combo, 18, getString(R.string.descricaoCombo)));
         burgueriaList.add(new Burgueria("PvP", R.drawable.variado, 16, getString(R.string.descricaoPvP)));
         burgueriaList.add(new Burgueria("Triplo", R.drawable.triplo, 12, getString(R.string.descricaoTriplo)));
 

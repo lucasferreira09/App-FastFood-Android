@@ -12,12 +12,14 @@
     <string name="descricaoNordestino">Carne bovina, Muçarela, Charque acebolado, Salada, Molho e Ketchup</string>
     <string name="descricaoAmericano">Carne, Cheddar derretido, Alface, Tomate maduro, Cebola roxa, Picles e Maionese especial.</string>
     <string name="descricaoXduplo">Dois hambúrgueres (bovino), Molho Cheddar, Bacon, Muçarela e Salada.</string>
+    <string name="descricaoMegaDuplo">Dois hambúrgueres (bovino), Cheddar derretido, Alface, Tomate maduro, Cebola roxa, Picles e Molho especial></string>
 
     //Hot dogs
     <string name="descricaoDogzilla">Pão, Salsicha, Carne moída, Creme de milho, Vinagrete, Batata palha, Queijo e molho.</string>
     <string name="descricaoTradicional">Pão, Salsicha, Carne moída, Creme de milho, Batata palha e Vinagrete</string>
     <string name="descricaoDogClassico">Pão, Salsicha, Carne moída, Linguiça defumada, Presunto, Salada, Batata palha e Vinagrete</string>
     <string name="descricaoHotmix">Pão, Salsicha, Carne moída, Bacon, Batata palha, Linguiça defumada, Presunto, Salada e Vinagrete</string>
+    <string name="descricaoDogEspecial">Pão, Creme de milho, Vinagrete, Batata palha, Carne moída, Bacon, Linguiça defumada, Presunto e Salada</string>
 
     //Combos
     <string name="descricaoClassico">1x Mini Burguer + 1x Coca Cola + Batata Frita</string>
@@ -26,6 +28,7 @@
     <string name="descricaoBigTasty">2x Big Mac + Batata Frita + 1x Refrigerante 1 litro</string>
     <string name="descricaoPvP">1x X Duplo + 1x Dogzilla</string>
     <string name="descricaoTriplo">3x Pasteis</string>
+    <string name="descricaoCombo">Descrição aqui</string>
 
 
 </resources>

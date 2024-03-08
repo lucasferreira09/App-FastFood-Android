@@ -58,11 +58,12 @@ public class BurgerFragment extends Fragment implements SelectListener {
         burgueriaList.add(new Burgueria("X Bacon", R.drawable.xbacon, 11, getString(R.string.descricaoXbacon)));
         burgueriaList.add(new Burgueria("Saladinha", R.drawable.saladinha, 9, getString(R.string.descricaoSaladinha)));
         burgueriaList.add(new Burgueria("Big Mac", R.drawable.bigmac, 15, getString(R.string.descricaoBigMac)));
-        burgueriaList.add(new Burgueria("X Duplo", R.drawable.duplo, 15, getString(R.string.descricaoXduplo)));
-        burgueriaList.add(new Burgueria("Mini Burger", R.drawable.mini, 6, getString(R.string.descricaoMiniBurger)));
-        burgueriaList.add(new Burgueria("Americano", R.drawable.americano, 9, getString(R.string.descricaoAmericano)));
         burgueriaList.add(new Burgueria("Faminto", R.drawable.faminto, 16, getString(R.string.descricaoFaminto)));
         burgueriaList.add(new Burgueria("Nordestino", R.drawable.nordestino, 7, getString(R.string.descricaoNordestino)));
+        burgueriaList.add(new Burgueria("Mega Duplo", R.drawable.megaduplo, 7, getString(R.string.descricaoMegaDuplo)));
+        burgueriaList.add(new Burgueria("Mini Burger", R.drawable.mini, 6, getString(R.string.descricaoMiniBurger)));
+        burgueriaList.add(new Burgueria("Americano", R.drawable.americano, 9, getString(R.string.descricaoAmericano)));
+        burgueriaList.add(new Burgueria("X Duplo", R.drawable.duplo, 15, getString(R.string.descricaoXduplo)));
 
 
         return view;
