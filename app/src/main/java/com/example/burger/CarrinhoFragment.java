@@ -77,7 +77,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
         return view;
     }
 
-    //Listener para mudar o $ Valor total do pedido
+    //Método da interface para mudar o $ Valor total do pedido
     @Override
     public void clickTextView(List<Burgueria> listaBurgueria) {
         String pedidoTotal = calculaPedidoTotal(listaBurgueria);
@@ -96,7 +96,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     }
 
 
-    //Faz uma descrição do pedido para poder enviar por WhatsApp
+    //Faz uma descrição do pedido para enviar por WhatsApp
     public String descricaoPedidoTotal(List<Burgueria> lista){
         StringBuilder descricaoPedido = new StringBuilder();
         descricaoPedido.append("Oii, tudo bem?\n\uD83D\uDE0BVou querer:\n");

@@ -49,30 +49,37 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
 
         Burgueria burgueria = new Burgueria(nameLanche, idImage, price, descricao);
 
-        //Listener para adicionar Lanche ao Carrinho
+        //Listener Botão de adicionar Lanche ao Carrinho
         adicionaLanche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<Burgueria> listaGeral = burgueria.getListaGeral();
+
+                //Se a lista com todos os lanches escolhidos não estiver vazia
                 if (!listaGeral.isEmpty()) {
                     boolean lancheAchado = false;
-                    for (Burgueria b : listaGeral) {
+
+                    for (Burgueria b : listaGeral) {  //É preciso verificar se esse lanche já foi adicionado
                         if (b.getNameLanche().equals(nameLanche)) {
+                            //Se foi, incrementamos a quantidade
                             b.addQuantidLanche();
                             lancheAchado = true;
                             break;
                         }
                     }
+                    //Se o lanche não foi adicionado
                     if (lancheAchado == false){
-                        burgueria.addQuantidLanche();
-                        adicionaAoCarrinho(burgueria);
+                        burgueria.addQuantidLanche();  //incrementamos a quantidade
+                        adicionaAoCarrinho(burgueria); //Adicionamos o lanche na lista de lanches do carrinho
                     }
 
+                //Se a lista com todos os lanches escolhidos estiver vazia
                 }else if (listaGeral.isEmpty()){
-                    burgueria.addQuantidLanche();
-                    adicionaAoCarrinho(burgueria);
+
+                    burgueria.addQuantidLanche();  //incrementamos a quantidade
+                    adicionaAoCarrinho(burgueria); //Adicionamos o lanche na lista de lanches do carrinho
                 }
-                getActivity().getSupportFragmentManager().popBackStack();
+                getActivity().getSupportFragmentManager().popBackStack(); //Depois de adicionado, o Fragment é fechado
             }
         });
 
@@ -84,6 +91,7 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
+
 
         return view;
     }
