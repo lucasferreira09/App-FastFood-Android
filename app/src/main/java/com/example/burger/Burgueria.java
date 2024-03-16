@@ -31,15 +31,15 @@ public class Burgueria {
     }
 
     //Métodos SET
-    public String getNameLanche(){
-        return nameLanche;
-    }
     public void setTotalLanche() {
         totalLanche = quantidLanche * priceLanche;
     }
 
 
     //Métodos GET
+    public String getNameLanche(){
+        return nameLanche;
+    }
     public int getImageLanche(){
         return imageLanche;
     }

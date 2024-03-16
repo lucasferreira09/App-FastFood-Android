@@ -15,12 +15,13 @@ import com.example.burger.interfaces.ListenerTextView;
 
 import java.util.List;
 
+
+//Adaptador para o RecyclerView do Carrinho de Compras
 public class AdapterLanchesCarrinho extends RecyclerView.Adapter<HolderCarrinhoLanches> {
 
     List<Burgueria> lancheListCarrinho;
     Context context;
-
-    ListenerTextView listenerTextView;
+    ListenerTextView listenerTextView;//Interface para atualizar o $ Valor total do pedido
 
     public AdapterLanchesCarrinho(List<Burgueria> lancheListCarrinho, Context context, ListenerTextView listenerTextView) {
         this.lancheListCarrinho = lancheListCarrinho;

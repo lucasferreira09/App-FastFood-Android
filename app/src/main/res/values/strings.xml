@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PedeAKi</string>
 
+
     //Burguers
     <string name="descricaoXbacon">-------</string>
     <string name="descricaoBigMac">Dois hambúrgueres, Alface Americana, Queijo Cheddar, Molho especial, Cebola, Picles e pão com Gergelim.</string>
