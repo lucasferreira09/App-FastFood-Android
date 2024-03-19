@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">PedeAKi</string>
 
+    //Informações Usuário
+    <string name="nomeUsuario">--</string>
+    <string name="endereco">--</string>
+    <string name="numero">--</string>
+    <string name="bairro">--</string>
+
+    <string name="top">com.example.sharedpreference.SHARED_PREF_NAME</string>
+
+
 
     //Burguers
     <string name="descricaoXbacon">-------</string>
@@ -28,6 +37,8 @@
     <string name="descricaoPvP">1x X Duplo + 1x Dogzilla</string>
     <string name="descricaoTriplo">3x Pasteis</string>
     <string name="descricaoCombo">Descrição aqui</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

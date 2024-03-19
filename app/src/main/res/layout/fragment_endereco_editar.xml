@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".EditarEndereco">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/localizacao"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:fontFamily="@font/boulderregular"
+        android:hint="NOME:"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/image"
+        app:layout_constraintStart_toStartOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:ignore="MissingConstraints">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/rua"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:fontFamily="@font/boulderregular"
+        android:hint="RUA:"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/nome"
+        app:layout_constraintStart_toStartOf="@+id/nome"
+        app:layout_constraintTop_toBottomOf="@+id/nome">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/numero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:fontFamily="@font/boulderregular"
+        android:hint="NÚMERO:"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/rua"
+        app:layout_constraintStart_toStartOf="@+id/rua"
+        app:layout_constraintTop_toBottomOf="@+id/rua">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/bairro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text"
+        android:fontFamily="@font/boulderregular"
+        android:hint="BAIRRO:"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="@+id/numero"
+        app:layout_constraintStart_toStartOf="@+id/numero"
+        app:layout_constraintTop_toBottomOf="@+id/numero">
+
+    </EditText>
+
+    <ImageView
+        android:id="@+id/salvaEndereco"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/motom"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bairro"
+        app:layout_constraintVertical_bias="0.538" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

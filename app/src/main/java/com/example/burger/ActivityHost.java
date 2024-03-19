@@ -101,11 +101,13 @@ public class ActivityHost extends AppCompatActivity{
         verCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.containerVi, carrinhoFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
 
