@@ -12,33 +12,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
-
+public class TelaInicial extends AppCompatActivity {
 
     private static final String SHARED_PREF_DADOS = "myDados";
     private static final String KEY_NOME = "nome";
 
     SharedPreferences sharedPreferences;
     private ImageView pedeAq;
-    ConstraintLayout consts;
-    FragmentContainerView containt;
+    FragmentContainerView containerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.inicial_tela);
 
         pedeAq = findViewById(R.id.pedeAq);
-        consts = findViewById(R.id.consts);
-
-        containt = findViewById(R.id.containt);
+        containerView = findViewById(R.id.containerView);
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_DADOS, MODE_PRIVATE);
         String nomeUsuario = sharedPreferences.getString(KEY_NOME, "");
-
-        if (nomeUsuario.equals("lucas")) {
-            visibilityPedeAq(true);
-        }
 
 
         FragmentManager fm = getSupportFragmentManager();
@@ -48,21 +40,19 @@ public class MainActivity extends AppCompatActivity {
         pedeAq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditarEndereco editarEndereco = new EditarEndereco();
+                EditaEndereco editaEndereco = new EditaEndereco();
 
-                if (nomeUsuario.equals("")) {
+                if (sharedPreferences.getAll().isEmpty()) {
                     visibilityPedeAq(false);
-                    ft.replace(R.id.containt, editarEndereco);
+                    ft.replace(R.id.containerView, editaEndereco);
                     ft.commit();
                 }
                 else {
-                    Intent ac = new Intent(MainActivity.this, ActivityHost.class);
+                    Intent ac = new Intent(TelaInicial.this, ActivityHost.class);
                     startActivity(ac);
                 }
-
             }
         });
-
 
     }
     public void visibilityPedeAq(boolean vf) {

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.burger.Burgueria;
-import com.example.burger.HolderMenuLanches;
+import com.example.burger.HoldersEAdapters.HolderMenuLanches;
 import com.example.burger.R;
 import com.example.burger.interfaces.SelectListener;
 

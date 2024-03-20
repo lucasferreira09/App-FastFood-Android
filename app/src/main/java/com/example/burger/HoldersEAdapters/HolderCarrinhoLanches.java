@@ -1,4 +1,4 @@
-package com.example.burger;
+package com.example.burger.HoldersEAdapters;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.burger.R;
 
 public class HolderCarrinhoLanches extends RecyclerView.ViewHolder {
     public ImageView imageLanche;

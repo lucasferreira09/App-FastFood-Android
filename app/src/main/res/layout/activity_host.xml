@@ -12,10 +12,10 @@
     <ImageView
         android:id="@+id/verCarrinho"
         android:layout_width="40dp"
-        android:layout_margin="16dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/vercarrinho"
+        android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

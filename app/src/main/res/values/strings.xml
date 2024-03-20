@@ -1,18 +1,8 @@
 <resources>
     <string name="app_name">PedeAKi</string>
 
-    //Informações Usuário
-    <string name="nomeUsuario">--</string>
-    <string name="endereco">--</string>
-    <string name="numero">--</string>
-    <string name="bairro">--</string>
-
-    <string name="top">com.example.sharedpreference.SHARED_PREF_NAME</string>
-
-
-
     //Burguers
-    <string name="descricaoXbacon">-------</string>
+    <string name="descricaoXbacon">Descrição aqui</string>
     <string name="descricaoBigMac">Dois hambúrgueres, Alface Americana, Queijo Cheddar, Molho especial, Cebola, Picles e pão com Gergelim.</string>
     <string name="descricaoFaminto">Três hambúrgueres (bovino), Queijo cheddar, Cebola, Picles, Ketchup, Mostarda e pão com Grgelim.</string>
     <string name="descricaoMiniBurger">Carne, Cheddar derretido, Alface, Tomate maduro, Cebola roxa, Picles e maionese especial.</string>
@@ -32,13 +22,11 @@
     //Combos
     <string name="descricaoClassico">1x Mini Burguer + 1x Coca Cola + Batata Frita</string>
     <string name="descricaoComboDuplo">2x Americanos</string>
-    <string name="descricaoComboJr">----</string>
+    <string name="descricaoComboJr">Descrição aqui</string>
     <string name="descricaoBigTasty">2x Big Mac + Batata Frita + 1x Refrigerante 1 litro</string>
     <string name="descricaoPvP">1x X Duplo + 1x Dogzilla</string>
     <string name="descricaoTriplo">3x Pasteis</string>
     <string name="descricaoCombo">Descrição aqui</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

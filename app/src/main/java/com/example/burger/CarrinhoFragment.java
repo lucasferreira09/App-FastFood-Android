@@ -2,6 +2,7 @@ package com.example.burger;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -25,6 +26,15 @@ import java.util.List;
 
 public class CarrinhoFragment extends Fragment implements ListenerTextView {
 
+    //DADOS DO USUÁRIO - NOME E ENDEREÇO
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_DADOS = "myDados";
+    private static final String KEY_NOME = "nome";
+    private static final String KEY_RUA = "rua";
+    private static final String KEY_NUMERO = "numero";
+    private static final String KEY_BAIRRO = "bairro";
+
+
     private TextView valorPedidoTotal;
 
     @Override
@@ -37,6 +47,9 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
+
+        sharedPreferences = getContext().getSharedPreferences(SHARED_PREF_DADOS, Context.MODE_PRIVATE);
+
 
         valorPedidoTotal = view.findViewById(R.id.valorPedidoTotal);
         ImageButton btnPedir = view.findViewById(R.id.btnPedir);
@@ -119,9 +132,10 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     //Faz uma descrição do pedido para enviar por WhatsApp
     public String descricaoPedidoTotal(List<Burgueria> lista){
         StringBuilder descricaoPedido = new StringBuilder();
-        descricaoPedido.append("Oii, tudo bem?\n\uD83D\uDE0BVou querer:\n");
+        descricaoPedido.append("Oii, tudo bem? \uD83D\uDE0B \uD83C\uDFDA️ Vou querer:\n");
         descricaoPedido.append("\n");
 
+        //Obtêm quais lanches foram adicionados ao carrinho
         for (Burgueria burgueria : lista){
             if (burgueria.getQuantidLanche() != 0){
                 String nomeLanche = burgueria.getNameLanche();
@@ -129,13 +143,25 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
                 descricaoPedido.append(quantidade + "* " + nomeLanche + "\n");
             }
         }
-
         descricaoPedido.append("\n");
-        descricaoPedido.append("Endereço:\n");
-        descricaoPedido.append("Rua xxxxxx  N° x");
-        descricaoPedido.append("\n");
-        descricaoPedido.append("\uD83D\uDE4FObrigado!");
+        descricaoPedido.append(obtemDadosUsuario());
 
         return descricaoPedido.toString();
+    }
+
+    //Pega os dados do usuário para fazer o pedido
+    public String obtemDadosUsuario() {
+
+        StringBuilder dados = new StringBuilder();
+
+        dados.append("\uD83C\uDFDA Endereço\n");
+        dados.append("Lucas");
+        dados.append("Rua " + "José Barbosa");
+        dados.append("\nN° " + "167");
+        dados.append("\nBairro  " +  "São Francisco");
+
+        return dados.toString();
+
+
     }
 }

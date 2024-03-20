@@ -17,7 +17,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".TelaInicial"
             android:exported="true"
             android:screenOrientation="portrait" >
             <intent-filter>

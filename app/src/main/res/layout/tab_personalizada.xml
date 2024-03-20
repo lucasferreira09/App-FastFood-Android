@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
-        android:src="@drawable/tab"
+        android:src="@drawable/tabpersonalizada"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

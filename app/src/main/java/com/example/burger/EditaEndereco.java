@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-public class EditarEndereco extends Fragment {
+public class EditaEndereco extends Fragment {
 
     //DADOS DO USUÁRIO - NOME E ENDEREÇO
     SharedPreferences sharedPreferences;
@@ -40,7 +40,7 @@ public class EditarEndereco extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_endereco_editar, container, false);
+        View view = inflater.inflate(R.layout.endereco_edita, container, false);
 
         ImageView salvaEndereco = view.findViewById(R.id.salvaEndereco);
 
@@ -66,10 +66,10 @@ public class EditarEndereco extends Fragment {
                     salvaDadosUsuario(editor);
                     Toast.makeText(getContext(), "SALVO COM SECESSO!", Toast.LENGTH_SHORT).show();
 
-                    //É preciso deixar o botão da Tela Inicial INVISÍVEL
-                    ((MainActivity) getActivity()).visibilityPedeAq(true);
+                    //É preciso deixar o botão (PedeAki) da Tela Inicial INVISÍVEL
+                    ((TelaInicial) getActivity()).visibilityPedeAq(true);
                     //E remover esse Fragment da Pilha
-                    getParentFragmentManager().beginTransaction().remove(EditarEndereco.this).commit();
+                    getParentFragmentManager().beginTransaction().remove(EditaEndereco.this).commit();
 
                     //Inicia a Activity com o Cardápio dos Lacnhes
                     Intent intent = new Intent(getActivity(), ActivityHost.class);
