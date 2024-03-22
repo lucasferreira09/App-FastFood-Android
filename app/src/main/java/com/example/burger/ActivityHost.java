@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.burger.adapters.AdapterTiposLanches;
+import com.example.burger.HoldersEAdapters.AdapterTiposLanches;
 import com.example.burger.lanches.BurgerFragment;
 import com.example.burger.lanches.CombosFragment;
 import com.example.burger.lanches.HotDogFragment;

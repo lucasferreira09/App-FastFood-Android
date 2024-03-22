@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import com.example.burger.Burgueria;
 import com.example.burger.LancheEscolhido;
 import com.example.burger.R;
-import com.example.burger.adapters.AdapterMenuLanches;
+import com.example.burger.HoldersEAdapters.AdapterMenuLanches;
 import com.example.burger.interfaces.SelectListener;
 
 import java.util.ArrayList;

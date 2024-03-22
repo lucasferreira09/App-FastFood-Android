@@ -1,4 +1,4 @@
-package com.example.burger.adapters;
+package com.example.burger.HoldersEAdapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

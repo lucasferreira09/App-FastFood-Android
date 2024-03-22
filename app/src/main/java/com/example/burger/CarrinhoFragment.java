@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.burger.adapters.AdapterLanchesCarrinho;
+import com.example.burger.HoldersEAdapters.AdapterLanchesCarrinho;
 import com.example.burger.interfaces.ListenerTextView;
 
 import java.util.List;

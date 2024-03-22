@@ -1,4 +1,4 @@
-package com.example.burger.adapters;
+package com.example.burger.HoldersEAdapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
