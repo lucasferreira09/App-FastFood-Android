@@ -1,4 +1,9 @@
-![tela-inicial](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/428b0817b7e744fefcc95a45d3d871dde3af3219/tela_inicial.png)
-![menu](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/428b0817b7e744fefcc95a45d3d871dde3af3219/menu.png)
-![adiciona-lanche](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/428b0817b7e744fefcc95a45d3d871dde3af3219/adiciona_lanche.png)
-![envia-pedido](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/428b0817b7e744fefcc95a45d3d871dde3af3219/envia_pedido.png)
+![tela-inicial](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/8c8b8b4e40921bbfd1b35e25845d2170394dd2b4/veja-o-app/tela_inicial.png)
+
+![cardapio](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/8c8b8b4e40921bbfd1b35e25845d2170394dd2b4/veja-o-app/cardapio_lanches.png)
+
+![adiciona-lanche](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/8c8b8b4e40921bbfd1b35e25845d2170394dd2b4/veja-o-app/adiciona_lanche.png)
+
+![endereco](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/8c8b8b4e40921bbfd1b35e25845d2170394dd2b4/veja-o-app/edita_ver_endereco.png)
+
+![envia-pedido](https://github.com/lucasferreira09/App-FastFood-Mobile/blob/8c8b8b4e40921bbfd1b35e25845d2170394dd2b4/veja-o-app/envia_pedido_zap.png)
