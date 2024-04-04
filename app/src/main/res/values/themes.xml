@@ -10,6 +10,7 @@
 
     <style name="tab_text" parent="TextAppearance.Design.Tab">
         <item name="android:fontFamily">@font/freckle_face</item>
+        <item name="textAllCaps">false</item>
     </style>
 
 

@@ -74,6 +74,7 @@ public class ActivityHost extends AppCompatActivity{
                 public void onTabSelected(TabLayout.Tab tab) {
                     int positionTab = tab.getPosition();
                     Typeface typeface = ResourcesCompat.getFont(ActivityHost.this, R.font.freckle_face);
+
                     nameLanche.setTypeface(typeface, R.style.tab_text);
                     nameLanche.setText(adapterTiposLanches.getTitleFragment(positionTab));
 

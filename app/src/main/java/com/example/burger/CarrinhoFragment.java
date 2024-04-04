@@ -132,7 +132,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     //Faz uma descrição do pedido para enviar por WhatsApp
     public String descricaoPedidoTotal(List<Burgueria> lista){
         StringBuilder descricaoPedido = new StringBuilder();
-        descricaoPedido.append("Oii, tudo bem? \uD83D\uDE0B \uD83C\uDFDA️ Vou querer:\n");
+        descricaoPedido.append("Olá, tudo bem? \uD83D\uDE0BVou querer:\n");
         descricaoPedido.append("\n");
 
         //Obtêm quais lanches foram adicionados ao carrinho
@@ -144,21 +144,21 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
             }
         }
         descricaoPedido.append("\n");
-        descricaoPedido.append(obtemDadosUsuario());
+        descricaoPedido.append(enderecoUsuario());
 
         return descricaoPedido.toString();
     }
 
     //Pega os dados do usuário para fazer o pedido
-    public String obtemDadosUsuario() {
+    public String enderecoUsuario() {
 
         StringBuilder dados = new StringBuilder();
 
         dados.append("\uD83C\uDFDA Endereço\n");
-        dados.append("Lucas");
-        dados.append("Rua " + "José Barbosa");
-        dados.append("\nN° " + "167");
-        dados.append("\nBairro  " +  "São Francisco");
+        dados.append(sharedPreferences.getString(KEY_NOME, "---") +"\n");
+        dados.append("Rua " + sharedPreferences.getString(KEY_RUA, "---") +"\n");
+        dados.append("N° " + sharedPreferences.getString(KEY_NUMERO, "---") +"\n");
+        dados.append("Bairro  " +  sharedPreferences.getString(KEY_BAIRRO, "---"));
 
         return dados.toString();
 
