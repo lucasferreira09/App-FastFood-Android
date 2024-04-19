@@ -10,12 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.burger.databinding.EnderecoEditaBinding;
+import com.example.burger.databinding.FragmentEscolhidoLancheBinding;
 import com.example.burger.interfaces.AdicionaCarrinho;
 
 import java.util.List;
 
 
 public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
+
+    private FragmentEscolhidoLancheBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,13 +29,9 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_escolhido_lanche, container, false);
 
-        View viewSair = view.findViewById(R.id.viewSair);
-        CardView adicionaLanche = view.findViewById(R.id.adicionaLanche);
-        TextView lancheEscolhido = view.findViewById(R.id.lancheEscolhido);
-        TextView descricaoLanche = view.findViewById(R.id.descricaoLanche);
-        TextView priceLanche = view.findViewById(R.id.priceLanche);
+        binding = FragmentEscolhidoLancheBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
 
         //Recupera as informações sobre o Lanche Escolhido
@@ -42,15 +42,15 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
         String descricao = bundle.getString("descricaoLanche");
 
         //Define as informações do Lanche
-        descricaoLanche.setText(descricao);
-        priceLanche.setText("$ " + String.valueOf(price));
-        lancheEscolhido.setText(nameLanche);
+        binding.descricaoLanche.setText(descricao);
+        binding.priceLanche.setText("$ " + String.valueOf(price));
+        binding.lancheEscolhido.setText(nameLanche);
 
 
         Burgueria burgueria = new Burgueria(nameLanche, idImage, price, descricao);
 
         //Listener Botão de adicionar Lanche ao Carrinho
-        adicionaLanche.setOnClickListener(new View.OnClickListener() {
+        binding.adicionaLanche.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<Burgueria> listaGeral = burgueria.getListaGeral();
@@ -85,14 +85,12 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
 
         //Fecha o Fragment (A tela com informações do Lanche)
         //Quando o lanche for adicionado
-        viewSair.setOnClickListener(new View.OnClickListener() {
+        binding.viewSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-
-
         return view;
     }
 
@@ -101,5 +99,4 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
         Burgueria b = new Burgueria();
         b.updateListaGeral(burguerLanche);
     }
-
 }

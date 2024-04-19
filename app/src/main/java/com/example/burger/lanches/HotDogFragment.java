@@ -18,6 +18,8 @@ import com.example.burger.Burgueria;
 import com.example.burger.LancheEscolhido;
 import com.example.burger.R;
 import com.example.burger.HoldersEAdapters.AdapterMenuLanches;
+import com.example.burger.databinding.FragmentCombosBinding;
+import com.example.burger.databinding.FragmentHotDogBinding;
 import com.example.burger.interfaces.SelectListener;
 
 import java.util.ArrayList;
@@ -25,32 +27,29 @@ import java.util.List;
 
 public class HotDogFragment extends Fragment implements SelectListener {
 
-    //Será usado para substituir toda a tela por um novo Fragment(Nova tela)
-    private ConstraintLayout constraintLayout;
+    private FragmentHotDogBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.fragment_hot_dog, container, false);
-        constraintLayout = view.findViewById(R.id.constraintLayout);
 
-        RecyclerView recyclerHotDog = view.findViewById(R.id.recyclerHotDog);
-
-        List<Burgueria> burgueriaListHotDog = new ArrayList<>();
+        binding = FragmentHotDogBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         Context context = getActivity();
+
+        List<Burgueria> burgueriaListHotDog = new ArrayList<>();
 
         //Preparando o RecyclerView com os Lanches
         AdapterMenuLanches adapterMenuLanches = new AdapterMenuLanches(burgueriaListHotDog, context, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
-        recyclerHotDog.setLayoutManager(gridLayoutManager);
-        recyclerHotDog.setAdapter(adapterMenuLanches);
+        binding.recyclerHotDog.setLayoutManager(gridLayoutManager);
+        binding.recyclerHotDog.setAdapter(adapterMenuLanches);
 
         //Menu Cardápio
         burgueriaListHotDog.add(new Burgueria("Dogzilla", R.drawable.dogzilla, 9, getString(R.string.descricaoDogzilla)));
@@ -58,7 +57,6 @@ public class HotDogFragment extends Fragment implements SelectListener {
         burgueriaListHotDog.add(new Burgueria("Dog Especial", R.drawable.dogespecial, 10, getString(R.string.descricaoDogEspecial)));
         burgueriaListHotDog.add(new Burgueria("Tradicional", R.drawable.tradicional, 11, getString(R.string.descricaoTradicional)));
         burgueriaListHotDog.add(new Burgueria("Dog Clássico", R.drawable.dogclassico, 9, getString(R.string.descricaoDogClassico)));
-
 
         return view;
     }

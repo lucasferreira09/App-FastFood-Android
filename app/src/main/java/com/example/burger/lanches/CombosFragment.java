@@ -18,6 +18,8 @@ import com.example.burger.Burgueria;
 import com.example.burger.LancheEscolhido;
 import com.example.burger.R;
 import com.example.burger.HoldersEAdapters.AdapterMenuLanches;
+import com.example.burger.databinding.FragmentBurgerBinding;
+import com.example.burger.databinding.FragmentCombosBinding;
 import com.example.burger.interfaces.SelectListener;
 
 import java.util.ArrayList;
@@ -26,28 +28,28 @@ import java.util.List;
 
 public class CombosFragment extends Fragment implements SelectListener {
 
+    private FragmentCombosBinding binding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_combos, container, false);
 
-        RecyclerView recyclerCombos = view.findViewById(R.id.recyclerCombos);
-        ConstraintLayout constraintLayout = view.findViewById(R.id.constraintLayout);
-
-        List<Burgueria> burgueriaList = new ArrayList<>();
+        binding = FragmentCombosBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         Context context = getActivity();
+
+        List<Burgueria> burgueriaList = new ArrayList<>();
 
         //Preparando o RecyclerView com os Lanches
         AdapterMenuLanches adapter = new AdapterMenuLanches(burgueriaList, context, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
-        recyclerCombos.setAdapter(adapter);
-        recyclerCombos.setLayoutManager(gridLayoutManager);
+        binding.recyclerCombos.setAdapter(adapter);
+        binding.recyclerCombos.setLayoutManager(gridLayoutManager);
 
         //Menu Cardápio
         burgueriaList.add(new Burgueria("Classico", R.drawable.classico, 16, getString(R.string.descricaoClassico)));
@@ -57,7 +59,6 @@ public class CombosFragment extends Fragment implements SelectListener {
         burgueriaList.add(new Burgueria("Combo", R.drawable.combo, 18, getString(R.string.descricaoCombo)));
         burgueriaList.add(new Burgueria("PvP", R.drawable.variado, 16, getString(R.string.descricaoPvP)));
         burgueriaList.add(new Burgueria("Triplo", R.drawable.triplo, 12, getString(R.string.descricaoTriplo)));
-
 
         return view;
     }

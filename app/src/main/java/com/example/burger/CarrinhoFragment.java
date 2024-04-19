@@ -20,11 +20,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.burger.HoldersEAdapters.AdapterLanchesCarrinho;
+import com.example.burger.databinding.FragmentCarrinhoBinding;
 import com.example.burger.interfaces.ListenerTextView;
 
 import java.util.List;
 
 public class CarrinhoFragment extends Fragment implements ListenerTextView {
+
+    private FragmentCarrinhoBinding binding;
 
     //DADOS DO USUÁRIO - NOME E ENDEREÇO
     SharedPreferences sharedPreferences;
@@ -35,8 +38,6 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     private static final String KEY_BAIRRO = "bairro";
 
 
-    private TextView valorPedidoTotal;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,34 +47,28 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
+        binding = FragmentCarrinhoBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         sharedPreferences = getContext().getSharedPreferences(SHARED_PREF_DADOS, Context.MODE_PRIVATE);
 
-
-        valorPedidoTotal = view.findViewById(R.id.valorPedidoTotal);
-        ImageButton btnPedir = view.findViewById(R.id.btnPedir);
-        ImageButton btnVoltar = view.findViewById(R.id.btnVoltar);
-        ImageView btnVerEndereco = view.findViewById(R.id.btnVerEndereco);
-        ConstraintLayout telaCarrinho = view.findViewById(R.id.telaCarrinho);
-        RecyclerView recyclerCarrinho = view.findViewById(R.id.recyclerCarrinho);
 
         //Será usada para pegar toda a lista de Lanches adicionados
         Burgueria burgueria = new Burgueria();
 
         String pedidoTotal = calculaPedidoTotal(burgueria.getListaGeral());
-        valorPedidoTotal.setText(pedidoTotal);
+        binding.valorPedidoTotal.setText(pedidoTotal);
 
         //Prepara a lista que terá todos os pedidos adicionados
         Context context = getActivity();
         AdapterLanchesCarrinho adapterLanchesCarrinho = new AdapterLanchesCarrinho(burgueria.getListaGeral(), context, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        recyclerCarrinho.setAdapter(adapterLanchesCarrinho);
-        recyclerCarrinho.setLayoutManager(layoutManager);
+        binding.recyclerCarrinho.setAdapter(adapterLanchesCarrinho);
+        binding.recyclerCarrinho.setLayoutManager(layoutManager);
 
 
         //Botão de fazer o pedido. Será redirecionado para WhatsApp
-        btnPedir.setOnClickListener(new View.OnClickListener() {
+        binding.btnPedir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent enviarPedido = new Intent();
@@ -86,7 +81,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
             }
         });
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+        binding.btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStack();
@@ -94,7 +89,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
         });
 
         //Botão de ir para o Endereço
-        btnVerEndereco.setOnClickListener(new View.OnClickListener() {
+        binding.btnVerEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 VerEndereco verEndereco = new VerEndereco();
@@ -114,7 +109,7 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
     @Override
     public void clickTextView(List<Burgueria> listaBurgueria) {
         String pedidoTotal = calculaPedidoTotal(listaBurgueria);
-        valorPedidoTotal.setText("$ " + pedidoTotal);
+        binding.valorPedidoTotal.setText("$ " + pedidoTotal);
     }
 
     //Calcula o $ Valor total do pedido
@@ -161,7 +156,5 @@ public class CarrinhoFragment extends Fragment implements ListenerTextView {
         dados.append("Bairro  " +  sharedPreferences.getString(KEY_BAIRRO, "---"));
 
         return dados.toString();
-
-
     }
 }

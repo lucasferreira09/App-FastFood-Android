@@ -14,8 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.burger.databinding.EnderecoEditaBinding;
+import com.example.burger.databinding.FragmentCarrinhoBinding;
+
 
 public class EditaEndereco extends Fragment {
+
+    private EnderecoEditaBinding binding;
 
     //DADOS DO USUÁRIO - NOME E ENDEREÇO
     SharedPreferences sharedPreferences;
@@ -25,37 +30,23 @@ public class EditaEndereco extends Fragment {
     private static final String KEY_NUMERO = "numero";
     private static final String KEY_BAIRRO = "bairro";
 
-    private EditText nome;
-    private EditText rua;
-    private EditText numero;
-    private EditText bairro;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.endereco_edita, container, false);
-
-        ImageView salvaEndereco = view.findViewById(R.id.salvaEndereco);
-
-        nome = view.findViewById(R.id.nome);
-        rua = view.findViewById(R.id.rua);
-        numero = view.findViewById(R.id.numero);
-        bairro = view.findViewById(R.id.bairro);
-
+        binding = EnderecoEditaBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         Context context = getActivity();
-
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_DADOS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        salvaEndereco.setOnClickListener(new View.OnClickListener() {
+        binding.salvaEndereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -68,6 +59,7 @@ public class EditaEndereco extends Fragment {
 
                     //É preciso deixar o botão (PedeAki) da Tela Inicial INVISÍVEL
                     ((TelaInicial) getActivity()).visibilityPedeAq(true);
+
                     //E remover esse Fragment da Pilha
                     getParentFragmentManager().beginTransaction().remove(EditaEndereco.this).commit();
 
@@ -84,16 +76,15 @@ public class EditaEndereco extends Fragment {
 
             }
         });
-
         return view;
     }
 
     //Salvar os dados do usuário. É passado, como parâmetro, um EDITOR do SharedPreferences
     public void salvaDadosUsuario(SharedPreferences.Editor editor) {
-        editor.putString(KEY_NOME, nome.getText().toString());
-        editor.putString(KEY_RUA, rua.getText().toString());
-        editor.putString(KEY_NUMERO, numero.getText().toString());
-        editor.putString(KEY_BAIRRO, bairro.getText().toString());
+        editor.putString(KEY_NOME, binding.nome.getText().toString());
+        editor.putString(KEY_RUA, binding.rua.getText().toString());
+        editor.putString(KEY_NUMERO, binding.numero.getText().toString());
+        editor.putString(KEY_BAIRRO, binding.bairro.getText().toString());
         editor.commit();
     }
 }

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.burger.HoldersEAdapters.AdapterTiposLanches;
+import com.example.burger.databinding.ActivityHostBinding;
 import com.example.burger.lanches.BurgerFragment;
 import com.example.burger.lanches.CombosFragment;
 import com.example.burger.lanches.HotDogFragment;
@@ -23,24 +24,18 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class ActivityHost extends AppCompatActivity{
 
-    private ConstraintLayout containerVi;
-    private ImageView verCarrinho;
-    private ViewPager2 pager2;
-
+    private ActivityHostBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_host);
+        binding = ActivityHostBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
-        verCarrinho = findViewById(R.id.verCarrinho);
-        containerVi = findViewById(R.id.containerVi);
-
-        TabLayout tabLayout = findViewById(R.id.tabLayout);
-        pager2 = findViewById(R.id.pager2);
 
         AdapterTiposLanches adapterTiposLanches = new AdapterTiposLanches(ActivityHost.this);
-        pager2.setAdapter(adapterTiposLanches);
+        binding.pager2.setAdapter(adapterTiposLanches);
         
         //Fragments que contém o menu de Lanches
         BurgerFragment burgerFragment = new BurgerFragment();
@@ -54,21 +49,22 @@ public class ActivityHost extends AppCompatActivity{
 
 
         //Controla o Menu com os tipos de Lanches ('Burguers', 'Hot Dog', 'Combos')
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, pager2, (tab, position) -> {
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(binding.tabLayout, binding.pager2, (tab, position) -> {
 
             //Cria uma Tab personalizada
-            View customViewTab = LayoutInflater.from(getApplicationContext()).inflate(R.layout.tab_personalizada, pager2, false);
+            View customViewTab = LayoutInflater.from(
+                    getApplicationContext()).inflate(R.layout.tab_personalizada, binding.pager2, false);
 
             //Define a Tab com o tipo de Lanche
             tab.setText(adapterTiposLanches.getTitleFragment(position));
 
             TextView nameLanche = customViewTab.findViewById(R.id.nameLanche);
 
-            TabLayout.Tab selectedTab = tabLayout.getTabAt(0);
+            TabLayout.Tab selectedTab = binding.tabLayout.getTabAt(0);
 
             //Listener para a Tab selecionada
             //O Layout Personalizado só é aplicado na Tab que está selecionada.
-            tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            binding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
@@ -88,7 +84,6 @@ public class ActivityHost extends AppCompatActivity{
                     // O Layout Personalizado é retirado
                     tab.setCustomView(null);
                 }
-
                 @Override
                 public void onTabReselected(TabLayout.Tab tab) {
                     //IGNORADO
@@ -99,7 +94,7 @@ public class ActivityHost extends AppCompatActivity{
 
 
         CarrinhoFragment carrinhoFragment = new CarrinhoFragment();
-        verCarrinho.setOnClickListener(new View.OnClickListener() {
+        binding.verCarrinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -108,10 +103,7 @@ public class ActivityHost extends AppCompatActivity{
                 fragmentTransaction.replace(R.id.containerVi, carrinhoFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
             }
         });
-
-
     }
 }

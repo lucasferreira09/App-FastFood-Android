@@ -18,6 +18,8 @@ import com.example.burger.Burgueria;
 import com.example.burger.LancheEscolhido;
 import com.example.burger.R;
 import com.example.burger.HoldersEAdapters.AdapterMenuLanches;
+import com.example.burger.databinding.FragmentBurgerBinding;
+import com.example.burger.databinding.FragmentCarrinhoBinding;
 import com.example.burger.interfaces.SelectListener;
 
 import java.util.ArrayList;
@@ -25,34 +27,31 @@ import java.util.List;
 
 public class BurgerFragment extends Fragment implements SelectListener {
 
-    private ConstraintLayout constraintLayout;
-    private RecyclerView recyclerView;
+    private FragmentBurgerBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_burger, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        constraintLayout = view.findViewById(R.id.constraintLayout);
-
-        //Armazena todos os Lanches
-        List<Burgueria> burgueriaList = new ArrayList<>();
+        binding = FragmentBurgerBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         Context context = getActivity();
 
 
+        //Armazena todos os Lanches
+        List<Burgueria> burgueriaList = new ArrayList<>();
+
         //Preparando o RecyclerView com os Lanches
         AdapterMenuLanches adapter = new AdapterMenuLanches(burgueriaList, context, this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.setLayoutManager(gridLayoutManager);
 
         //Menu Cardápio
         burgueriaList.add(new Burgueria("X Bacon", R.drawable.xbacon, 11, getString(R.string.descricaoXbacon)));
@@ -64,7 +63,6 @@ public class BurgerFragment extends Fragment implements SelectListener {
         burgueriaList.add(new Burgueria("Mini Burger", R.drawable.mini, 6, getString(R.string.descricaoMiniBurger)));
         burgueriaList.add(new Burgueria("Americano", R.drawable.americano, 9, getString(R.string.descricaoAmericano)));
         burgueriaList.add(new Burgueria("X Duplo", R.drawable.duplo, 15, getString(R.string.descricaoXduplo)));
-
 
         return view;
     }
@@ -91,8 +89,5 @@ public class BurgerFragment extends Fragment implements SelectListener {
         ft.replace(R.id.constraintLayout, lancheEscolhido);
         ft.addToBackStack(null);
         ft.commit();
-
-
     }
-
 }
