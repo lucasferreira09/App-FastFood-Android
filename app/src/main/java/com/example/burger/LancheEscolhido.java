@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.burger.databinding.EnderecoEditaBinding;
 import com.example.burger.databinding.FragmentEscolhidoLancheBinding;
@@ -64,6 +65,7 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
                             //Se foi, incrementamos a quantidade
                             b.addQuantidLanche();
                             lancheAchado = true;
+                            Toast.makeText(getActivity(), "Adicionado\uD83D\uDE0B", Toast.LENGTH_SHORT).show();
                             break;
                         }
                     }
@@ -71,6 +73,7 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
                     if (lancheAchado == false){
                         burgueria.addQuantidLanche();  //incrementamos a quantidade
                         adicionaAoCarrinho(burgueria); //Adicionamos o lanche na lista de lanches do carrinho
+                        Toast.makeText(getActivity(), "Adicionado\uD83D\uDE0B", Toast.LENGTH_SHORT).show();
                     }
 
                 //Se a lista com todos os lanches escolhidos estiver vazia
@@ -78,6 +81,7 @@ public class LancheEscolhido extends Fragment implements AdicionaCarrinho {
 
                     burgueria.addQuantidLanche();  //incrementamos a quantidade
                     adicionaAoCarrinho(burgueria); //Adicionamos o lanche na lista de lanches do carrinho
+                    Toast.makeText(getActivity(), "Adicionado\uD83D\uDE0B", Toast.LENGTH_SHORT).show();
                 }
                 getActivity().getSupportFragmentManager().popBackStack(); //Depois de adicionado, o Fragment é fechado
             }

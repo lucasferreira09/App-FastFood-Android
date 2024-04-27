@@ -27,7 +27,6 @@ public class AdapterLanchesCarrinho extends RecyclerView.Adapter<HolderCarrinhoL
         this.lancheListCarrinho = lancheListCarrinho;
         this.context = context;
         this.listenerTextView = listenerTextView;
-
     }
 
     @NonNull
@@ -51,7 +50,8 @@ public class AdapterLanchesCarrinho extends RecyclerView.Adapter<HolderCarrinhoL
                     lancheListCarrinho.get(position).setTotalLanche();//atualiza valor do lanche
                     notifyItemChanged(position);
 
-                    listenerTextView.clickTextView(lancheListCarrinho);//avisa o carrinho para atualizar ValorTotal do Pedido
+                    //avisa o carrinho para atualizar ValorTotal do Pedido
+                    listenerTextView.clickTextView(lancheListCarrinho);
 
                 } else {
                     lancheListCarrinho.remove(position);
@@ -67,12 +67,10 @@ public class AdapterLanchesCarrinho extends RecyclerView.Adapter<HolderCarrinhoL
                 lancheListCarrinho.get(position).addQuantidLanche();
                 notifyItemChanged(position);
 
-                listenerTextView.clickTextView(lancheListCarrinho);//avisa o carrinho para atualizar ValorTotal do Pedido
-
-
+                //avisa o carrinho para atualizar ValorTotal do Pedido
+                listenerTextView.clickTextView(lancheListCarrinho);
             }
         });
-
     }
 
     @Override

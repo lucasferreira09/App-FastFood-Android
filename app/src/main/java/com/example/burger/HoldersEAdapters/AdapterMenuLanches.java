@@ -1,4 +1,5 @@
 package com.example.burger.HoldersEAdapters;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class AdapterMenuLanches extends RecyclerView.Adapter<HolderMenuLanches> {
 
-    
+
     private Context context;
     private List<Burgueria> burgueriaList;
 
@@ -43,10 +44,8 @@ public class AdapterMenuLanches extends RecyclerView.Adapter<HolderMenuLanches> 
             public void onClick(View v) {
                 //Método da interface é chamado, passando um Objeto Burgueria para ele
                 listener.onItemClicked(burgueriaList.get(position));
-
             }
         });
-
     }
 
     @Override
