@@ -19,10 +19,8 @@ public class TelaInicial extends AppCompatActivity {
 
     private InicialTelaBinding binding;
 
-    private static final String SHARED_PREF_DADOS = "myDados";
+    private static final String SHARED_DADOS_USUARIO = "DadosUsuario";
     private static final String KEY_NOME = "nome";
-    SharedPreferences sharedPreferences;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +30,7 @@ public class TelaInicial extends AppCompatActivity {
         setContentView(view);
 
 
-        sharedPreferences = getSharedPreferences(SHARED_PREF_DADOS, MODE_PRIVATE);
-        String nomeUsuario = sharedPreferences.getString(KEY_NOME, "");
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_DADOS_USUARIO, MODE_PRIVATE);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -59,8 +56,8 @@ public class TelaInicial extends AppCompatActivity {
         });
     }
 
-    public void visibilityPedeAq(boolean vf) {
-        if (vf == true) {
+    public void visibilityPedeAq(boolean visibility) {
+        if (visibility) {
             binding.pedeAq.setVisibility(View.VISIBLE);
         } else {
             binding.pedeAq.setVisibility(View.GONE);

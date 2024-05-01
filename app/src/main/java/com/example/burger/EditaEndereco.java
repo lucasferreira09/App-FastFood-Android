@@ -38,11 +38,10 @@ public class EditaEndereco extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         binding = EnderecoEditaBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
         Context context = getActivity();
+
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_DADOS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
@@ -71,7 +70,7 @@ public class EditaEndereco extends Fragment {
                     //Caso o usuário já tenha colocado um endereço antes, e agora quer mudá-lo
                     //Só preciso salvar os dados do novo endereço
                     salvaDadosUsuario(editor);
-                    Toast.makeText(getContext(), "SALVO COM SECESSO!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "SALVO COM SUCESSO!", Toast.LENGTH_SHORT).show();
                 }
 
             }
