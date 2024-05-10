@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/constraint"
     android:background="@drawable/background"
-    tools:context=".Endereco.EditaEndereco">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageOii"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/oiusuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textOiUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/freckle_face"
+        android:text="Oii"
+        android:textColor="@color/yellow"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageOii"
+        app:layout_constraintStart_toEndOf="@+id/imageOii"
+        app:layout_constraintTop_toTopOf="@+id/imageOii" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/localizacao"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageOii" />
 
-
-    <EditText
-        android:id="@+id/nome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/background_edit_text"
-        android:fontFamily="@font/boulderregular"
-        android:hint="Nome:"
-        android:textSize="20dp"
-        android:padding="10dp"
-        android:textColor="@color/yellow"
-        android:textColorHint="@color/yellow"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/image"
-        app:layout_constraintStart_toStartOf="@+id/image"
-        app:layout_constraintTop_toBottomOf="@+id/image"
-        tools:ignore="MissingConstraints">
-    </EditText>
-
-    <EditText
+    <TextView
         android:id="@+id/rua"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_edit_text"
         android:fontFamily="@font/boulderregular"
         android:hint="Rua:"
@@ -50,17 +50,15 @@
         android:textColor="@color/yellow"
         android:textColorHint="@color/yellow"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/nome"
-        app:layout_constraintStart_toStartOf="@+id/nome"
-        app:layout_constraintTop_toBottomOf="@+id/nome">
+        app:layout_constraintEnd_toEndOf="@+id/image"
+        app:layout_constraintStart_toStartOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/image"/>
 
-    </EditText>
-
-    <EditText
+    <TextView
         android:id="@+id/numero"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_edit_text"
         android:fontFamily="@font/boulderregular"
         android:hint="Número:"
@@ -68,18 +66,15 @@
         android:padding="10dp"
         android:textColor="@color/yellow"
         android:textColorHint="@color/yellow"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="@+id/rua"
         app:layout_constraintStart_toStartOf="@+id/rua"
-        app:layout_constraintTop_toBottomOf="@+id/rua">
+        app:layout_constraintTop_toBottomOf="@+id/rua"/>
 
-    </EditText>
-
-    <EditText
+    <TextView
         android:id="@+id/bairro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/background_edit_text"
         android:fontFamily="@font/boulderregular"
         android:hint="Bairro:"
@@ -87,21 +82,33 @@
         android:padding="10dp"
         android:textColor="@color/yellow"
         android:textColorHint="@color/yellow"
-        android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/numero"
         app:layout_constraintStart_toStartOf="@+id/numero"
-        app:layout_constraintTop_toBottomOf="@+id/numero">
+        app:layout_constraintTop_toBottomOf="@+id/numero"/>
 
-    </EditText>
 
     <ImageView
-        android:id="@+id/salvaEndereco"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/moto_delivery"
+        android:id="@+id/editaEndereco"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/edita_endereco"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bairro"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/bairro"
         app:layout_constraintTop_toBottomOf="@+id/bairro" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar"
+        android:fontFamily="@font/boulderregular"
+        android:textColor="@color/yellow"
+        android:textSize="20dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editaEndereco"
+        app:layout_constraintStart_toEndOf="@+id/editaEndereco"
+        app:layout_constraintTop_toTopOf="@+id/editaEndereco" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

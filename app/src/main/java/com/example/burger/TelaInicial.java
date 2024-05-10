@@ -1,8 +1,6 @@
 package com.example.burger;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,17 +8,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.example.burger.databinding.FragmentEscolhidoLancheBinding;
+import com.example.burger.Endereco.EditaEndereco;
 import com.example.burger.databinding.InicialTelaBinding;
 
 public class TelaInicial extends AppCompatActivity {
 
     private InicialTelaBinding binding;
 
+    SharedPreferences sharedPreferences;
     private static final String SHARED_DADOS_USUARIO = "DadosUsuario";
     private static final String KEY_NOME = "nome";
+    private static final String KEY_RUA = "rua";
+    private static final String KEY_NUMERO = "numero";
+    private static final String KEY_BAIRRO = "bairro";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,10 @@ public class TelaInicial extends AppCompatActivity {
         setContentView(view);
 
 
-        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_DADOS_USUARIO, MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(SHARED_DADOS_USUARIO, MODE_PRIVATE);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-
 
         //Apenas um botão que inicia o Menu com os Lanches
         binding.pedeAq.setOnClickListener(new View.OnClickListener() {
@@ -42,15 +42,15 @@ public class TelaInicial extends AppCompatActivity {
             public void onClick(View v) {
 
                 EditaEndereco editaEndereco = new EditaEndereco();
+                String nome = sharedPreferences.getString(KEY_NOME, "");
 
-                if (sharedPreferences.getAll().isEmpty()) {
+                if (!nome.equals("")) {
+                    Intent ac = new Intent(TelaInicial.this, ActivityHost.class);
+                    startActivity(ac);
+                } else {
                     visibilityPedeAq(false);
                     ft.replace(R.id.containerView, editaEndereco);
                     ft.commit();
-                }
-                else {
-                    Intent ac = new Intent(TelaInicial.this, ActivityHost.class);
-                    startActivity(ac);
                 }
             }
         });

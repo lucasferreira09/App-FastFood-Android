@@ -1,24 +1,21 @@
 package com.example.burger;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.burger.HoldersEAdapters.AdapterTiposLanches;
 import com.example.burger.databinding.ActivityHostBinding;
-import com.example.burger.lanches.BurgerFragment;
-import com.example.burger.lanches.CombosFragment;
-import com.example.burger.lanches.HotDogFragment;
+import com.example.burger.MenuLanches.BurgerFragment;
+import com.example.burger.MenuLanches.CombosFragment;
+import com.example.burger.MenuLanches.HotDogFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -105,5 +102,7 @@ public class ActivityHost extends AppCompatActivity{
                 fragmentTransaction.commit();
             }
         });
+
+
     }
 }

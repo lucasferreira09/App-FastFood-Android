@@ -1,4 +1,4 @@
-package com.example.burger;
+package com.example.burger.Endereco;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.burger.ActivityHost;
+import com.example.burger.TelaInicial;
 import com.example.burger.databinding.EnderecoEditaBinding;
-import com.example.burger.databinding.FragmentCarrinhoBinding;
 
 
 public class EditaEndereco extends Fragment {
@@ -24,7 +23,7 @@ public class EditaEndereco extends Fragment {
 
     //DADOS DO USUÁRIO - NOME E ENDEREÇO
     SharedPreferences sharedPreferences;
-    private static final String SHARED_PREF_DADOS = "myDados";
+    private static final String SHARED_DADOS_USUARIO = "DadosUsuario";
     private static final String KEY_NOME = "nome";
     private static final String KEY_RUA = "rua";
     private static final String KEY_NUMERO = "numero";
@@ -42,7 +41,7 @@ public class EditaEndereco extends Fragment {
         View view = binding.getRoot();
         Context context = getActivity();
 
-        sharedPreferences = context.getSharedPreferences(SHARED_PREF_DADOS, Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(SHARED_DADOS_USUARIO, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         binding.salvaEndereco.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +53,7 @@ public class EditaEndereco extends Fragment {
                 //Caso seja a primeira vez q abri o Aplicativo
                 if (sharedPreferences.getAll().isEmpty()) {
                     salvaDadosUsuario(editor);
-                    Toast.makeText(getContext(), "SALVO COM SECESSO!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "SALVO COM SUCESSO!", Toast.LENGTH_SHORT).show();
 
                     //É preciso deixar o botão (PedeAki) da Tela Inicial INVISÍVEL
                     ((TelaInicial) getActivity()).visibilityPedeAq(true);
@@ -71,6 +70,7 @@ public class EditaEndereco extends Fragment {
                     //Só preciso salvar os dados do novo endereço
                     salvaDadosUsuario(editor);
                     Toast.makeText(getContext(), "SALVO COM SUCESSO!", Toast.LENGTH_SHORT).show();
+                    getActivity().getSupportFragmentManager().popBackStack();
                 }
 
             }

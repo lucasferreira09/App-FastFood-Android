@@ -27,6 +27,8 @@
     <string name="descricaoPvP">1x X Duplo + 1x Dogzilla</string>
     <string name="descricaoTriplo">3x Pasteis</string>
     <string name="descricaoCombo">Descrição aqui</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

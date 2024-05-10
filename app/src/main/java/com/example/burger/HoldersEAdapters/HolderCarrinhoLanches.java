@@ -11,6 +11,7 @@ import com.example.burger.R;
 
 public class HolderCarrinhoLanches extends RecyclerView.ViewHolder {
     public ImageView imageLanche;
+
     public TextView nameLanche;
     public TextView priceLanche;
     public ImageView btnAddLanche;
